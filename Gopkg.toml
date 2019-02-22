@@ -30,7 +30,7 @@
   version = "=0.1.36"
 
 [[constraint]]
-  name = "github.com/Peripli/service-broker-proxy"
+  name = "github.com/georgi-bozhinov/service-broker-proxy"
   version = "0.2.1"
 
 [[constraint]]
