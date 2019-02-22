@@ -1,0 +1,36 @@
+#Project Setup
+general:
+  githubApiUrl: 'https://api.github.com'
+  githubServerUrl: 'https://github.com'
+  gitSshKeyCredentialsId: 'ssh-key-os'
+  githubTokenCredentialsId: 'github-token-os'
+
+steps:
+  updatePackageRefs:
+    deps: ["github.com/georgi-bozhinov/service-broker-proxy"]
+  pushChangesToRepo:
+    branch: 'new-version'
+  pollBuilds:
+    pollTimeout: 1
+    branch: 'new-version'
+    expectedStatus: 'pending'
+  buildDepProjects:
+    projects: []
+  XMakeBuild:
+    buildWithXMake: false
+    # projects: ['b1', 'b2', 'b3']
+
+  setupPipelineEnvironment:
+    buildDiscarder:
+      daysToKeep: -1
+      numToKeep: 10
+      artifactDaysToKeep: -1
+      artifactNumToKeep: -1
+    configYmlFile: '.pipeline/config.yml'
+    githubApiUrl: 'https://api.github.com'
+    gitHttpsUrl: 'https://github.com/${githubOrg}/${githubRepo}.git'
+    gitSshUrl: 'git@github.com:${githubOrg}/${githubRepo}.git'
+    relatedLibraries:
+    - 'piper-lib-os'
+    - 'piper-lib'
+    storeGithubStatistics: false
