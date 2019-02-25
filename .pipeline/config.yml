@@ -15,10 +15,9 @@ steps:
     branch: 'new-version'
     expectedStatus: 'pending'
   buildDepProjects:
-    projects: []
+    projects: ["release-k8s-broker-proxy-sap"]
   XMakeBuild:
     buildWithXMake: false
-    # projects: ['b1', 'b2', 'b3']
 
   setupPipelineEnvironment:
     buildDiscarder:
