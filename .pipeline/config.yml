@@ -8,6 +8,7 @@ general:
 steps:
   updatePackageRefs:
     deps: ["github.com/georgi-bozhinov/service-broker-proxy"]
+    skipDepRebuild: true
   pushChangesToRepo:
     branch: 'new-version'
   pollBuilds:
