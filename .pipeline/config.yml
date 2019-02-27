@@ -11,7 +11,8 @@ steps:
   pushChangesToRepo:
     branch: 'new-version'
   pollBuilds:
-    timeoutSeconds: 60
+    timeoutSeconds: 30
+    pollIntervalSeconds: 5
     branch: 'new-version'
   buildDepProjects:
     projects: ["release-k8s-broker-proxy-sap"]
